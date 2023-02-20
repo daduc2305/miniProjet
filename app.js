@@ -22,18 +22,13 @@ app.get('/html/all_transactions', (request, response) => {
 
 app.post('/post-transaction', (request, response) => {  
     new_transaction(request.body["nom_client"], request.body["montant"])
-      response.send({message:"Nouvelle Transaction"})
-    
+      response.send({message:"Nouvelle Transaction"})    
 })
 
 app.get('/get-transaction/:id', (request, response) => {
   const id = request.params.id; 
   response.json(get_transaction(id));
-  
 })
-
-
-
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
